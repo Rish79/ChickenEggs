@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LayEggStation : MonoBehaviour
 {
+    [SerializeField]
+    private bool canLayEggs;
+    [SerializeField]
+    private bool playerIsInNest;
+
     public Transform eggSpawnPoint;
     public GameObject eggPrefab;
-    private bool canLayEggs;
-    private bool playerIsInNest;
+    public Slider slider;
     
-
-	// Use this for initialization
 	void Start ()
     {
         canLayEggs = false;
@@ -19,17 +22,27 @@ public class LayEggStation : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        PlayerInput playerInput = other.gameObject.GetComponent<PlayerInput>();
-
-        if (playerInput.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
+            PlayerInput playerInput = other.GetComponent<PlayerInput>();
             playerIsInNest = true;
-            StartCoroutine("StartEggLaying");
+            if (playerIsInNest)
+            {
+                Debug.Log("in egg laying");
+                if (Input.GetButton("Laying" + playerInput.playerId))
+                {
+                    slider.value += Time.deltaTime * playerInput.layingSpeed;
+                    if (slider.value >= 1)
+                    {
+                        canLayEggs = true;
+                        slider.value = 0;
+                    }
+                }
+            }
 
             if (canLayEggs)
             {
                 Instantiate(eggPrefab, eggSpawnPoint.transform.position, eggSpawnPoint.transform.rotation);
-                StopCoroutine("StartEggLaying");
                 canLayEggs = false;
             }
         }
@@ -37,22 +50,11 @@ public class LayEggStation : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        PlayerInput playerInput = other.gameObject.GetComponent<PlayerInput>();
         
-        if(playerInput.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
             playerIsInNest = false;
-            StopCoroutine("StartEggLaying");
-        }
-    }
-
-    private IEnumerator StartEggLaying()
-    {
-        if(playerIsInNest)
-        {
-            Debug.Log("in egg laying");
-            yield return new WaitForSeconds(3.5f);
-            canLayEggs = true;
+            slider.value = 0;
         }
     }
 }

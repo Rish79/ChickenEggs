@@ -1,14 +1,16 @@
 fileFormatVersion: 2
-guid: cec2cef6e626fa04b926fe36ec4bb3ad
-timeCreated: 1507413930
-licenseType: Pro
+guid: 67d9a1a82a6121f449bd5886d5360ce5
+timeCreated: 1507494270
+licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Punk
+    100002: //RootNode
+    400000: Punk
+    400002: //RootNode
+    2300000: Punk
+    3300000: Punk
     4300000: Punk
     9500000: //RootNode
   materials:

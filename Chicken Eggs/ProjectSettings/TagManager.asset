@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Eggs
   - GameManager
+  - Snakes
+  - RightWorldTrigger
+  - LeftWorldTrigger
   layers:
   - Default
   - TransparentFX

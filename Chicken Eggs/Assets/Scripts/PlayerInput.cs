@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private Rigidbody rb;
+    private GameManager gameManager;
 
     [SerializeField]
     private float cappedVelocity = 2.5f;
@@ -14,24 +15,28 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float sustainedJumpForce = 1000f;
 
+    public float layingSpeed = 0.025f;
+
     public int playerId;
     public bool hasAnEgg;
     public GameObject eggOnPlayer;
 
-
-    // Use this for initialization
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
+        gameManager = FindObjectOfType<GameManager>();
+
         hasAnEgg = false;
         eggOnPlayer.SetActive(false);
     }
 	
-	// Update is called once per frame
 	void FixedUpdate ()
     {
-        CheckForMovement();
-        CheckForJumping();
+        if(gameManager.isGameRunning)
+        {
+            CheckForMovement();
+            CheckForJumping();
+        }      
 	}
 
     void CheckForMovement()
@@ -76,12 +81,10 @@ public class PlayerInput : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log("in egg trigger");
         if (other.gameObject.tag == "Eggs" && !hasAnEgg)
         {
             if (Input.GetButtonDown("PickUp" + playerId))
             {
-                Debug.Log("In pick up egg");
                 Destroy(other.gameObject);
                 eggOnPlayer.SetActive(true);
                 hasAnEgg = true;
