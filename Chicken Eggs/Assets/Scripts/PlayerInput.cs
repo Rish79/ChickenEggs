@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerInput : MonoBehaviour
@@ -15,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private float sustainedJumpForce = 1000f;
 
+    public float barricadeBuildTime = 0.1f;
     public float layingSpeed = 0.025f;
 
     public int playerId;

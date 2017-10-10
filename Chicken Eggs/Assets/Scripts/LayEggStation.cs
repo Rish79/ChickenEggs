@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class LayEggStation : MonoBehaviour
@@ -49,8 +47,7 @@ public class LayEggStation : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other)
-    {
-        
+    {       
         if(other.gameObject.tag == "Player")
         {
             playerIsInNest = false;

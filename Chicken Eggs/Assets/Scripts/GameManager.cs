@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -8,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public Text collectedEggstext;
     public GameObject startPanel;
-
+    public GameObject boardPrefab;
+    //public Transform[] boardSpawnPoints;
     
     public int eggsCollected;
     public float initialStartDelay = 1.5f;
@@ -34,6 +33,19 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+
+        //if(Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    Instantiate(boardPrefab, boardSpawnPoints[0].transform.position, boardPrefab.transform.rotation);
+        //}
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Instantiate(boardPrefab, boardSpawnPoints[1].transform.position, boardPrefab.transform.rotation);
+        //}
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Instantiate(boardPrefab, boardSpawnPoints[2].transform.position, boardPrefab.transform.rotation);
+        //}
     }
 
     public void StartGame()
@@ -52,7 +64,7 @@ public class GameManager : MonoBehaviour
     public void SpawnSnakes()
     {
         int randomSpawnPoint = Random.Range(0, snakeSpawnPoints.Length);
-        Debug.Log(randomSpawnPoint);
+        //Debug.Log(randomSpawnPoint);
         Instantiate(snakePrefab, snakeSpawnPoints[randomSpawnPoint].transform.position,
             snakePrefab.transform.rotation);
     }

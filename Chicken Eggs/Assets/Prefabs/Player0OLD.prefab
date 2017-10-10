@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114935106864139442}
   - component: {fileID: 54075293473667514}
   m_Layer: 0
-  m_Name: Player0
+  m_Name: Player0OLD
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,8 +192,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79c336ffe73bd345b00e8ee1b344165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 0
+  cappedVelocity: 2.5
   moveSpeed: 5
+  sustainedJumpForce: 1000
+  layingSpeed: 0.025
+  playerId: 0
+  hasAnEgg: 0
+  eggOnPlayer: {fileID: 0}
 --- !u!135 &135610617817594782
 SphereCollider:
   m_ObjectHideFlags: 1

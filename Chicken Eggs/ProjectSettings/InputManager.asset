@@ -326,7 +326,7 @@ InputManager:
     axis: 1
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Joy1Axis3
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -374,7 +374,7 @@ InputManager:
     axis: 4
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Joy1Axis6
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -662,7 +662,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Joy1Button3
+    m_Name: Building0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -694,7 +694,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Joy1Button5
+    m_Name: Crow0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -966,7 +966,7 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Joy2Axis3
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1014,7 +1014,7 @@ InputManager:
     axis: 4
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Joy2Axis6
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1302,7 +1302,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Joy2Button3
+    m_Name: Building1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1334,7 +1334,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: Joy2Button5
+    m_Name: Crow1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1606,7 +1606,7 @@ InputManager:
     axis: 1
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy3Axis3
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1654,7 +1654,7 @@ InputManager:
     axis: 4
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy3Axis6
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1942,7 +1942,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy3Button3
+    m_Name: Building2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1974,7 +1974,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Joy3Button5
+    m_Name: Crow2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -2246,7 +2246,7 @@ InputManager:
     axis: 1
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Joy4Axis3
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -2294,7 +2294,7 @@ InputManager:
     axis: 4
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Joy4Axis6
+    m_Name: 
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -2582,7 +2582,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Joy4Button3
+    m_Name: Building3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -2614,7 +2614,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Joy4Button5
+    m_Name: Crow3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

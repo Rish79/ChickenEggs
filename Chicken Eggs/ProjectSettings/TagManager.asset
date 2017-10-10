@@ -9,6 +9,7 @@ TagManager:
   - Snakes
   - RightWorldTrigger
   - LeftWorldTrigger
+  - Board
   layers:
   - Default
   - TransparentFX
