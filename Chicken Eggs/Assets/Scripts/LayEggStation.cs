@@ -11,11 +11,15 @@ public class LayEggStation : MonoBehaviour
     public Transform eggSpawnPoint;
     public GameObject eggPrefab;
     public Slider slider;
+    public GameObject pickUpButton;
+    public GameObject layingProgressBar;
     
 	void Start ()
     {
         canLayEggs = false;
         playerIsInNest = false;
+        pickUpButton.SetActive(false);
+        layingProgressBar.SetActive(false);
 	}
 
     private void OnTriggerStay(Collider other)
@@ -26,6 +30,7 @@ public class LayEggStation : MonoBehaviour
             playerIsInNest = true;
             if (playerIsInNest)
             {
+                layingProgressBar.SetActive(true);
                 Debug.Log("in egg laying");
                 if (Input.GetButton("Laying" + playerInput.playerId))
                 {
@@ -41,6 +46,7 @@ public class LayEggStation : MonoBehaviour
             if (canLayEggs)
             {
                 Instantiate(eggPrefab, eggSpawnPoint.transform.position, eggSpawnPoint.transform.rotation);
+                pickUpButton.SetActive(true);
                 canLayEggs = false;
             }
         }
@@ -52,6 +58,11 @@ public class LayEggStation : MonoBehaviour
         {
             playerIsInNest = false;
             slider.value = 0;
+            if(slider.value == 0)
+            {
+                pickUpButton.SetActive(false);
+                layingProgressBar.SetActive(false);
+            }
         }
     }
 }

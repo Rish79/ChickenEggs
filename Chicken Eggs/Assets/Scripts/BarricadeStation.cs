@@ -11,11 +11,13 @@ public class BarricadeStation : MonoBehaviour
     public Transform barricadeSpawnPoint;
     public GameObject barricadePrefab;
     public Slider slider;
+    public GameObject barricadeProgressBar;
 
     void Start()
     {
         canBuildBarricade = false;
         playerIsInBuildArea = false;
+        barricadeProgressBar.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -26,6 +28,7 @@ public class BarricadeStation : MonoBehaviour
             playerIsInBuildArea = true;
             if (playerIsInBuildArea)
             {
+                barricadeProgressBar.SetActive(true);
                 Debug.Log("in egg laying");
                 if (Input.GetButton("Building" + playerInput.playerId))
                 {
@@ -51,6 +54,7 @@ public class BarricadeStation : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            barricadeProgressBar.SetActive(false);
             playerIsInBuildArea = false;
             slider.value = 0;
         }

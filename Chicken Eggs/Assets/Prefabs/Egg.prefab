@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33946428162462314}
   - component: {fileID: 135197773421654362}
   - component: {fileID: 23898985676177178}
+  - component: {fileID: 54959969344046620}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Eggs
@@ -152,6 +153,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712936979372226}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54959969344046620
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1712936979372226}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!95 &95701576516409304
 Animator:
   serializedVersion: 3

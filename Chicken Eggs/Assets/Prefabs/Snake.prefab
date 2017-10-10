@@ -39,9 +39,10 @@ GameObject:
   - component: {fileID: 4237588026247762}
   - component: {fileID: 33675407556870674}
   - component: {fileID: 23476293569699332}
-  - component: {fileID: 135917101286288788}
   - component: {fileID: 114919793113666636}
   - component: {fileID: 54365732268911916}
+  - component: {fileID: 136623209019806440}
+  - component: {fileID: 65082365436580898}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Snakes
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670647624961694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.391846, y: 4.5, z: -0.4140216}
+  m_LocalPosition: {x: 1.6793594, y: 4, z: -1.9766235}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4385620506883560}
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561640980862438}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.12, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 4237588026247762}
@@ -177,6 +178,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 88
   m_CollisionDetection: 0
+--- !u!65 &65082365436580898
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670647624961694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.41, z: 1}
+  m_Center: {x: 0, y: -0.12, z: 0.13}
 --- !u!95 &95228274921689594
 Animator:
   serializedVersion: 3
@@ -208,12 +221,15 @@ MonoBehaviour:
   moveSpeed: 2
   timeToBreakBoard: 3.5
   eggPrefab: {fileID: 1712936979372226, guid: 8d3b7cb4f64ed4142972636fe0c8573e, type: 2}
+  upwardsDeathForce: 100
+  initalHopTime: 5
+  intervalHopTime: 3
   isMovingRight: 0
   isMovingLeft: 0
   gotToCenter: 0
   snakeIsBlocked: 0
---- !u!135 &135917101286288788
-SphereCollider:
+--- !u!136 &136623209019806440
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -221,6 +237,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.33
-  m_Center: {x: 0, y: 0.06, z: -0.4}
+  m_Radius: 0.32
+  m_Height: 1.52
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.07}

@@ -10,6 +10,13 @@ public class SnakeBehaviour : MonoBehaviour
     private float timeToBreakBoard = 3.5f;
     public GameObject eggPrefab;
 
+    [SerializeField]
+    private float upwardsDeathForce = 100.0f;
+    [SerializeField]
+    private float initalHopTime = 5.0f;
+    [SerializeField]
+    private float intervalHopTime = 3.0f;
+
     public bool isMovingRight;
     public bool isMovingLeft;
     public bool gotToCenter;
@@ -20,6 +27,8 @@ public class SnakeBehaviour : MonoBehaviour
         isMovingLeft = false;
         gotToCenter = false;
         snakeIsBlocked = false;
+        eggPrefab.GetComponent<Rigidbody>().useGravity = false;
+        //InvokeRepeating("SnakeHop", initalHopTime, intervalHopTime);
 	}
 
 	void Update ()
@@ -47,6 +56,8 @@ public class SnakeBehaviour : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 90, 0);
                 transform.Translate(0, 0, Time.deltaTime * -moveSpeed);
             }
+
+
         }
 	}
 
@@ -72,23 +83,15 @@ public class SnakeBehaviour : MonoBehaviour
                 playerInput.hasAnEgg = false;
                 playerInput.eggOnPlayer.SetActive(false);
                 Instantiate(eggPrefab, playerInput.transform.position, playerInput.transform.rotation);
-            }
-            else if(!playerInput.hasAnEgg)
-            {
-                if (Input.GetButtonDown("Crow" + playerInput.playerId))
-                {
-                    snakeIsBlocked = true;
-                    Rigidbody rb = GetComponent<Rigidbody>();
-                    rb.AddForce(0, 200, -200);
-                    rb.useGravity = true;
-                    Destroy(gameObject, 2.0f);
-                }
+                Rigidbody rb = eggPrefab.GetComponent<Rigidbody>();
+                rb.AddForce(0, 200, -200);
+                rb.useGravity = true;
             }
         }
         if(other.gameObject.tag == "Eggs")
         {
             // destroy egg i.e. eat it
-            Destroy(other.gameObject);
+            Destroy(other.gameObject, 2.5f);
         }
         if(other.gameObject.tag == "Board")
         {
@@ -98,6 +101,32 @@ public class SnakeBehaviour : MonoBehaviour
             Destroy(other.gameObject, timeToBreakBoard);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            PlayerInput playerInput = other.gameObject.GetComponent<PlayerInput>();
+            if (!playerInput.hasAnEgg)
+            {
+                if (Input.GetButtonDown("Crow" + playerInput.playerId))
+                {
+                    snakeIsBlocked = true;
+                    Rigidbody rb = GetComponent<Rigidbody>();
+                    rb.AddForce(0, upwardsDeathForce, -200);
+                    rb.useGravity = true;
+                    Destroy(gameObject, 2.0f);
+                }
+            }
+        }
+    }
+
+    //private void SnakeHop()
+    //{
+    //    Rigidbody rb = GetComponent<Rigidbody>();
+    //    rb.AddForce(0, upwardsDeathForce, 0);
+    //    rb.useGravity = true;
+    //}
 
     private IEnumerator DestroyBoard()
     {
